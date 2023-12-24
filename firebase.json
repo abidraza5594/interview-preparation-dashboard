@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "myblog-dashboard",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

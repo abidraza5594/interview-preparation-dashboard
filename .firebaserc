@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "my-blogs-1688124392168": {
+      "hosting": {
+        "myblog-dashboard": [
+          "interview-preparation-com"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "my-blogs-1688124392168"
+  }
+}
