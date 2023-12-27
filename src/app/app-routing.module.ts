@@ -7,12 +7,14 @@ import { NewPostComponent } from './post/new-post/new-post.component';
 import { SignupComponent } from './layout/signup/signup.component';
 import { AuthGuard } from './Services/auth.guard';
 import { BackendComponent } from './post/all-post/backend/backend.component';
+import { NormalPostsComponent } from './post/all-post/normal-posts/normal-posts.component';
 
 const routes: Routes = [
   {path:'',component:DashboardComponent,canActivate:[AuthGuard]},
   {path:'catogery',component:CategoryComponent,canActivate:[AuthGuard]},
   {path:'frontend',component:FrontEndComponent,canActivate:[AuthGuard]},
   {path:'backend',component:BackendComponent,canActivate:[AuthGuard]},
+  {path:'normal-post',component:NormalPostsComponent,canActivate:[AuthGuard]},
 
   {path:'posts/new',component:NewPostComponent,canActivate:[AuthGuard]},
   {path:'login',component:SignupComponent},

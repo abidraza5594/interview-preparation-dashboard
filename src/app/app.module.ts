@@ -34,6 +34,7 @@ import { QuillModule } from 'ngx-quill';
 import { BackendComponent } from './post/all-post/backend/backend.component';
 
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { NormalPostsComponent } from './post/all-post/normal-posts/normal-posts.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     FrontEndComponent,
     NewPostComponent,
     BackendComponent,
+    NormalPostsComponent,
   ],
   imports: [
     BrowserModule,

@@ -15,10 +15,8 @@ export class PostService {
     private router:Router) { }
 
   uploadImage(selectedImage: any, postData: any,formsStatus:any,id:any) {
-    console.log(postData,'post data from post service')
     const filePath = `postIMG/${Date.now()}`;
     this.storage.upload(filePath, selectedImage).then(() => {
-      console.log("Post Image Uploaded successfully")
       // get uploaded image URL
       this.storage.ref(filePath).getDownloadURL().subscribe(URL => {
         // add this URL in to PostData Object
@@ -26,7 +24,7 @@ export class PostService {
         if(formsStatus=='Edit'){
           this.updateData(id,postData)
         }else{
-          this.savePostData(postData)
+          this.savePostData(postData) 
         }
       })
     })
@@ -54,6 +52,19 @@ export class PostService {
 
   loadBackEndPost(){
     return this.afs.collection("posts",ref=>ref.where('postType','==',"backend")).snapshotChanges().pipe(
+      map(actions =>{
+        return actions.map(a=>{
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return {id,data}
+        })
+      })
+    )
+  }
+
+
+  loadNormalHeaderPost(){
+    return this.afs.collection("posts",ref=>ref.where('postType','==',"post")).snapshotChanges().pipe(
       map(actions =>{
         return actions.map(a=>{
           const data = a.payload.doc.data();
